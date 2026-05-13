@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onix, Edwin & Derek Perfil Galería</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    body.dark {
+      background: #121212;
+      color: white;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #60a5fa;
+    }
+
+    .theme-btn {
+      background: #60a5fa;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+    }
+
+    section {
+      padding: 5rem 10%;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(to right, #2563eb, #1e3a8a);
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #1e3a8a;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2rem;
+      color: #2563eb;
+    }
+
+    .about-container,
+    .evaluation-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    body.dark .card {
+      background: #1f2937;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    body.dark .service-box {
+      background: #1f2937;
+    }
+
+    .service-box:hover {
+      transform: translateY(-10px);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .team-card {
+      background: white;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    body.dark .team-card {
+      background: #1f2937;
+    }
+
+    .team-card img {
+      width: 330px;
+      height: 330px;
+      border-radius: 90%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input,
+    textarea {
+      padding: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 1rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    a:focus,
+    button:focus,
+    input:focus,
+    textarea:focus {
+      outline: 3px solid #60a5fa;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Onix, Edwin & Derek</div>
+
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Inicio</a></li>
+        <li><a href="#about">Nosotros</a></li>
+        <li><a href="#services">Tecnologías</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#evaluation">Inspiración</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+
+      <button class="theme-btn" id="themeToggle">Dark Mode</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div>
+        <h1>Futuros Profesionales de Tecnología</h1>
+        <p>
+          Somos Onix, Edwin y Derek, estudiantes graduados del taller de Tecnología Informática con certificaciones de Certiport en Microsoft Word y Microsoft PowerPoint. Somos estudiantes apasionados, con grandes metas, ética de trabajo y motivación para seguir aprendiendo y creciendo en el mundo de la tecnología.
+        </p>
+
+        <a href="#about" class="btn">Conócenos</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">Sobre el Proyecto</h2>
+
+      <div class="about-container">
+        <div class="card">
+          <h3>Proposito del Proyecto</h3>
+          <p>
+            Este sitio web representa nuestro recorrido como estudiantes de tecnología y futuros profesionales. Nuestro objetivo es mostrar nuestras habilidades, certificaciones, trabajo en equipo y pasión por la tecnología mediante el desarrollo web moderno.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Audiencia Deseada</h3>
+          <p>
+            Este sitio web está diseñado para instructores, compañeros y futuros empleadores interesados en estudiantes con ambición, creatividad y pasión por la tecnología.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">Tecnologías y Habilidades</h2>
+
+      <div class="services">
+        <div class="service-box">
+          <h3>HTML5</h3>
+          <p>
+            Estructura semántica usando elementos HTML5 modernos y accesibles.
+          </p>
+        </div>
+
+        <div class="service-box">
+          <h3>CSS3</h3>
+          <p>
+           Diseños responsivos utilizando Flexbox, Grid y técnicas modernas de estilizado.
+          </p>
+        </div>
+
+        <div class="service-box">
+          <h3>JavaScript</h3>
+          <p>
+           Experiencias de usuario interactivas que incluyen cambio de tema (modo oscuro/claro) y efectos de navegación.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <h2 class="section-title">Portfolio</h2>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-item card">
+        
+          <h3>Nuestro Recorrido</h3>
+          <p>
+           Onix, Edwin y Derek son estudiantes motivados con grandes ambiciones, trabajo en equipo sólido y pasión por la tecnología y el éxito futuro.
+          </p>
+        </div>
+
+        <div class="portfolio-item card">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Web development workspace">
+          <h3>Website</h3>
+          <p>
+            Un diseño completamente responsivo optimizado para dispositivos de escritorio, tabletas y móviles.
+          </p>
+        </div>
+
+        <div class="portfolio-item card">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop" alt="Programming and code editor">
+          <h3>Diseño interactivo</h3>
+          <p>
+           La funcionalidad de JavaScript mejora la experiencia del usuario y la navegación.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="team">
+      <h2 class="section-title">Nuestro Perfil</h2>
+
+      <div class="team-grid">
+
+        <article class="team-card">
+          <img src="c:\Users\derek\Downloads\ChatGPT Image 12 may 2026, 11_19_48 p.m..png" alt="Onix, Edwin y Derek">
+          <h3>Onix, Edwin y Derek</h3>
+          <h4>Estudiantes de Tecnología Informática</h4>
+          <p>
+            Somos un equipo de estudiantes graduados del taller de Tecnología Informática con certificaciones de Certiport en Microsoft Word y PowerPoint. Compartimos una pasión por la tecnología, los autos y el aprendizaje continuo. Onix y Edwin son fanáticos de los Volvo C30, mientras que Derek sueña con un Lexus. Juntos tenemos grandes metas y la determinación de alcanzar el éxito.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+   
+
+    <section id="contact">
+      <h2 class="section-title">Contáctanos</h2>
+
+      <form id="contactForm">
+
+        <label for="name">Nombre completo</label>
+        <input type="text" id="name" placeholder="Enter your full name" required>
+
+        <label for="email">Correo electrónico.</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+
+        <label for="message">Mensaje</label>
+        <textarea id="message" rows="5" placeholder="Write your message" required></textarea>
+
+        <button type="submit">Enviar Mensaje</button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © 2026 Onix, Edwin & Derek | Proyecto Final 2220
+    </p>
+
+    <p>
+      Creditos: Nosotros mismos.
+    </p>
+  </footer>
+
+  <script>
+
+    const themeToggle = document.getElementById('themeToggle');
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+
+      if(document.body.classList.contains('dark')) {
+        themeToggle.textContent = 'Light Mode';
+      } else {
+        themeToggle.textContent = 'Dark Mode';
+      }
+    });
+
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+
+        if(scrollY >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+
+        if(link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      alert('Message sent successfully!');
+
+      form.reset();
+    });
+
+  </script>
+
+</body>
+</html>
+
+<!--
+README INFORMATION
+
+PROJECT NAME:
+Onix, Edwin & Derek Portfolio Website
+
+FEATURES:
+- Responsive Design
+- Semantic HTML5
+- Dark Mode Toggle
+- Navigation Highlight Effect
+- Contact Form Validation
+- Team Member Section
+- Accessibility Features
+
+HOW TO RUN LOCALLY:
+1. Download all files
+2. Open index.html in a browser
+
+DEPLOYMENT:
+Upload the project to GitHub and enable GitHub Pages.
+
+RECOMMENDED FILE STRUCTURE:
+project-folder/
+│
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+│
+├── images/
+│   ├── team1.jpg
+│   ├── project1.png
+│
+└── assets/
+
+-->
